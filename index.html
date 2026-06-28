@@ -2,15 +2,15 @@
 :root{--bg:#070b16;--panel:#101827;--line:#283548;--text:#f8fafc;--muted:#9aa7b8;--blue:#38bdf8;--green:#22c55e;--red:#ef4444}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 35%),radial-gradient(circle at 90% 10%,rgba(139,92,246,.16),transparent 35%),linear-gradient(160deg,#020617,#0f172a,#111827);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Arial,sans-serif;padding:env(safe-area-inset-top) 14px 92px}header{position:sticky;top:0;z-index:10;padding:14px 0 10px;background:linear-gradient(180deg,#070b16 75%,rgba(7,11,22,0));backdrop-filter:blur(12px)}h1{margin:0;font-size:28px}.sub{color:var(--muted);font-size:13px;margin-top:4px}.badge{display:inline-flex;margin-top:9px;background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.35);color:#bae6fd;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:900}.card{background:linear-gradient(180deg,rgba(16,24,39,.97),rgba(15,23,42,.94));border:1px solid var(--line);border-radius:24px;padding:16px;margin:12px 0;box-shadow:0 18px 45px rgba(0,0,0,.28)}.hero{background:linear-gradient(135deg,rgba(37,99,235,.28),rgba(15,23,42,.9),rgba(34,197,94,.13))}h2{margin:0 0 10px;font-size:20px}h3{margin:18px 0 9px;color:#dbeafe;font-size:16px}.muted{color:var(--muted);font-size:14px;line-height:1.35}.between{display:flex;justify-content:space-between;gap:10px;align-items:center}.score{font-size:52px;font-weight:950;letter-spacing:-2px}.progress{height:14px;background:#020617;border:1px solid #263244;border-radius:999px;overflow:hidden}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--green));transition:.35s}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.mini{background:rgba(2,6,23,.55);border:1px solid #263244;border-radius:18px;padding:12px}.mini strong{display:block;font-size:20px;margin-top:4px}.check{display:flex;gap:12px;align-items:center;background:rgba(2,6,23,.55);border:1px solid #263244;border-radius:16px;padding:13px;margin:8px 0;font-weight:750}.check input{width:25px;height:25px;accent-color:#22c55e}button{border:0;border-radius:16px;padding:13px 14px;background:#263244;color:white;font-weight:850;font-size:15px}button.primary{background:linear-gradient(90deg,#2563eb,#0891b2)}button.red{background:#7f1d1d}button.ghost{background:rgba(2,6,23,.55);border:1px solid #334155}input,textarea{width:100%;border:1px solid #374151;background:#020617;color:white;border-radius:15px;padding:13px;font-size:16px;margin:7px 0 11px}textarea{min-height:110px}.pill{display:inline-block;border:1px solid #334155;border-radius:999px;background:#0b1220;padding:6px 9px;color:#cbd5e1;font-size:12px;margin:5px 5px 0 0}.ex{background:rgba(2,6,23,.55);border:1px solid #263244;border-radius:18px;padding:13px;margin:10px 0}.ex.done{border-color:#22c55e;background:rgba(8,32,20,.8)}.hidden{display:none}.nav{position:fixed;bottom:0;left:0;right:0;background:rgba(5,8,18,.96);border-top:1px solid #263244;display:grid;grid-template-columns:repeat(6,1fr);padding:8px 6px calc(8px + env(safe-area-inset-bottom));z-index:20;backdrop-filter:blur(18px)}.nav button{font-size:11px;padding:10px 2px;background:transparent;color:#94a3b8}.nav button.on{background:#1f2937;color:white}.ok{color:#86efac;font-weight:900}.warn{color:#fdba74;font-weight:900}.failbox{border:1px solid #7f1d1d;background:#260b0b;border-radius:18px;padding:14px;margin:12px 0}.foodchip{display:flex;align-items:center;gap:10px;padding:12px;margin:8px 0;border:1px solid #2b3a50;background:rgba(2,6,23,.55);border-radius:16px}.foodchip input{width:24px;height:24px;accent-color:#22c55e}.foodchip .cal{margin-left:auto;color:#a7f3d0;font-size:12px;font-weight:800}
 </style></head><body>
-<header><h1>Enzo Dream Fit</h1><div class="sub">Objectif 73 kg sec et musclé • USA • 5 séances/semaine</div><span class="badge">VERSION ENZO V1 — sèche + masse USA</span></header>
+<header><h1>Enzo Dream Fit</h1><div class="sub">Objectif 73 kg sec et musclé • USA • 5 séances/semaine</div><span class="badge">VERSION ENZO V2 — séances quotidiennes + football</span></header>
 <section id="home"><div class="card hero"><div class="between"><div><h2>Bonjour Enzo</h2><div class="muted" id="dateTitle"></div><div class="muted" id="dayTitle"></div></div><div class="score"><span id="score">0</span>%</div></div><div class="progress"><div id="scoreBar" class="bar"></div></div><p class="muted" id="coachLine"></p></div><div class="grid"><div class="mini">💧 Eau cible<strong id="waterTargetBox">3 L</strong></div><div class="mini">🌤️ Météo<strong id="weatherBox">Non chargée</strong></div><div class="mini">⚖️ Poids<strong id="weightBox">-- kg</strong></div><div class="mini">🚶 Pas<strong id="stepsBox">0</strong></div></div>
 <div class="card">
   <button class="primary" onclick="loadWeather()">🌤️ Actualiser la météo</button>
   <p class="muted">La météo ajuste l’objectif d’eau automatiquement quand il fait chaud.</p>
 </div>
 
-<div class="card"><h2>✅ Aujourd'hui</h2><label class="check"><input type="checkbox" data-c="breakfast"> Petit-déjeuner protéiné</label><label class="check"><input type="checkbox" data-c="lunch"> Déjeuner validé</label><label class="check"><input type="checkbox" data-c="dinner"> Dîner validé</label><label class="check"><input type="checkbox" data-c="training"> Sport ou marche terminé</label><label class="check"><input type="checkbox" data-c="sync"> Synchro ChatGPT</label></div></section>
-<section id="training" class="hidden"><div class="card"><h2>🏋️ Séance du jour</h2><p class="muted" id="trainSub"></p><div class="failbox"><label class="check"><input type="checkbox" id="missedTraining"> Échec : je n'ai pas pu aller à la salle aujourd'hui</label><textarea id="missedReason" placeholder="Pourquoi ?"></textarea></div><div id="exList"></div></div></section>
+<div class="card"><h2>✅ Aujourd'hui</h2><label class="check"><input type="checkbox" data-c="breakfast"> Petit-déjeuner protéiné</label><label class="check"><input type="checkbox" data-c="lunch"> Déjeuner validé</label><label class="check"><input type="checkbox" data-c="dinner"> Dîner validé</label><label class="check"><input type="checkbox" data-c="training"> Séance musculation terminée</label><label class="check"><input type="checkbox" data-c="football"> Entraînement de football fait</label><label class="check"><input type="checkbox" data-c="sync"> Synchro ChatGPT</label></div></section>
+<section id="training" class="hidden"><div class="card"><h2>🏋️ Séance du jour</h2><p class="muted" id="trainSub"></p><div class="failbox"><label class="check"><input type="checkbox" id="missedTraining"> Échec : pas de musculation aujourd'hui</label><textarea id="missedReason" placeholder="Pourquoi ?"></textarea></div><div id="exList"></div></div></section>
 <section id="food" class="hidden"><div class="card"><h2>🍽️ Repas à cocher</h2><p class="muted">Coche ce que tu as mangé.</p><div id="foodList"></div><h3>Notes repas</h3><textarea id="notes" placeholder="Ex : portion plus grande, sauce à part, repas dehors..."></textarea><button onclick="saveVal('notes')">Enregistrer notes</button></div></section>
 <section id="track" class="hidden"><div class="card" id="dailyWeightCard"><h2>⚖️ Poids du jour</h2><p class="muted">Pesée seulement lundi, mercredi et samedi. Objectif actuel : 73 kg avec 13-15% body fat.</p><input id="dailyWeight" type="number" step="0.1" placeholder="Ex : 98.2"><button class="primary" onclick="saveVal('dailyWeight')">Enregistrer</button><p id="dailyWeightMsg"></p></div><div class="card"><h2>💧 Eau</h2><p class="muted">L’objectif s’ajuste avec la chaleur si la météo est chargée.</p><div class="between"><b><span id="waterV">0</span> L</b><span id="waterMsg" class="muted"></span></div><div class="grid"><button onclick="water(.25)">+250 ml</button><button onclick="water(.5)">+500 ml</button><button onclick="water(.75)">+750 ml</button><button onclick="water(1)">+1 L</button></div><button class="red" onclick="setWater(0)">Reset eau</button></div><div class="card"><h2>🚶 Pas</h2><input id="steps" type="number" placeholder="Ex : 8350"><button class="primary" onclick="saveVal('steps')">Enregistrer</button><p id="stepsMsg"></p></div><div class="card"><h2>😴 Sommeil</h2><input id="sleep" type="number" step="0.25" placeholder="Ex : 6.5"><button class="primary" onclick="saveVal('sleep')">Enregistrer</button><p id="sleepMsg"></p></div></section>
 
@@ -29,73 +29,60 @@ const PLAN = (() => {
  const start = new Date("2026-06-25T12:00:00");
  const out = [];
  const fmt = d => d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+ const sessions = [
+  {title:"Push • Pecs épaules triceps", exercises:[
+   ["Bench press ou chest press","4","6-10","90 sec"],
+   ["Incline dumbbell press","4","8-12","90 sec"],
+   ["Cable fly ou pec deck","3","12-15","60 sec"],
+   ["Lateral raises","4","12-20","45-60 sec"],
+   ["Triceps rope pushdown","3","10-15","60 sec"],
+   ["Overhead triceps extension","3","10-15","60 sec"]
+  ]},
+  {title:"Pull • Dos biceps", exercises:[
+   ["Pull-ups assistées ou lat pulldown","4","8-12","90 sec"],
+   ["Seated cable row","4","8-12","90 sec"],
+   ["One-arm dumbbell row","3","10-12","75 sec"],
+   ["Rear delt fly","4","12-20","60 sec"],
+   ["Dumbbell curls","3","10-12","60 sec"],
+   ["Hammer curls","3","10-12","60 sec"]
+  ]},
+  {title:"Legs • Jambes abdos", exercises:[
+   ["Squat ou leg press","4","8-12","90 sec"],
+   ["Romanian deadlift","4","8-12","90 sec"],
+   ["Leg curl","3","12-15","60 sec"],
+   ["Leg extension","3","12-15","60 sec"],
+   ["Calf raises","4","12-20","45-60 sec"],
+   ["Plank / cable crunch","3","30-60 sec / 12-15","45-60 sec"]
+  ]},
+  {title:"Upper hypertrophy • Haut du corps", exercises:[
+   ["Incline machine press","3","10-12","75 sec"],
+   ["Lat pulldown","3","10-12","75 sec"],
+   ["Machine row","3","10-12","75 sec"],
+   ["Lateral raises","4","15-20","45-60 sec"],
+   ["Rear delt fly","3","15-20","45-60 sec"],
+   ["Biceps + triceps superset","3","12-15","60 sec"]
+  ]},
+  {title:"Full body léger • Masse propre", exercises:[
+   ["Rower / bike warm-up","1","10 min",""],
+   ["Goblet squat","3","12","60 sec"],
+   ["Push-ups ou machine press","3","AMRAP propre","60 sec"],
+   ["Cable row","3","12","60 sec"],
+   ["Walking lunges","3","10/jambe","60 sec"],
+   ["Incline walk","1","20-30 min","zone 2"]
+  ]},
+  {title:"Shoulders arms core • Épaules bras abdos", exercises:[
+   ["Shoulder press","4","8-12","90 sec"],
+   ["Lateral raises","4","15-20","45-60 sec"],
+   ["Rear delt fly","4","15-20","45-60 sec"],
+   ["EZ bar curl ou dumbbell curl","3","10-12","60 sec"],
+   ["Triceps rope pushdown","3","10-12","60 sec"],
+   ["Abs circuit","3","12-15","45 sec"]
+  ]}
+ ];
  for(let i=0;i<180;i++){
    const d = new Date(start); d.setDate(start.getDate()+i);
-   const wd = d.getDay(); // 0 sun
-   let title, exercises;
-   if(wd===1){
-     title="Push • Pecs épaules triceps";
-     exercises=[
-       ["Bench press ou chest press","4","6-10","90 sec"],
-       ["Incline dumbbell press","4","8-12","90 sec"],
-       ["Cable fly ou pec deck","3","12-15","60 sec"],
-       ["Lateral raises","4","12-20","45-60 sec"],
-       ["Triceps rope pushdown","3","10-15","60 sec"],
-       ["Overhead triceps extension","3","10-15","60 sec"]
-     ];
-   } else if(wd===2){
-     title="Pull • Dos biceps";
-     exercises=[
-       ["Pull-ups assistées ou lat pulldown","4","8-12","90 sec"],
-       ["Seated cable row","4","8-12","90 sec"],
-       ["One-arm dumbbell row","3","10-12","75 sec"],
-       ["Rear delt fly","4","12-20","60 sec"],
-       ["Dumbbell curls","3","10-12","60 sec"],
-       ["Hammer curls","3","10-12","60 sec"]
-     ];
-   } else if(wd===3){
-     title="Legs • Jambes abdos";
-     exercises=[
-       ["Squat ou leg press","4","8-12","90 sec"],
-       ["Romanian deadlift","4","8-12","90 sec"],
-       ["Leg curl","3","12-15","60 sec"],
-       ["Leg extension","3","12-15","60 sec"],
-       ["Calf raises","4","12-20","45-60 sec"],
-       ["Plank / cable crunch","3","30-60 sec / 12-15","45-60 sec"]
-     ];
-   } else if(wd===4){
-     title="Upper hypertrophy • Haut du corps";
-     exercises=[
-       ["Incline machine press","3","10-12","75 sec"],
-       ["Lat pulldown","3","10-12","75 sec"],
-       ["Machine row","3","10-12","75 sec"],
-       ["Lateral raises","4","15-20","45-60 sec"],
-       ["Rear delt fly","3","15-20","45-60 sec"],
-       ["Biceps + triceps superset","3","12-15","60 sec"]
-     ];
-   } else if(wd===5){
-     title="Conditioning • Full body léger";
-     exercises=[
-       ["Rower / bike warm-up","1","10 min",""],
-       ["Goblet squat","3","12","60 sec"],
-       ["Push-ups ou machine press","3","AMRAP propre","60 sec"],
-       ["Cable row","3","12","60 sec"],
-       ["Walking lunges","3","10/jambe","60 sec"],
-       ["Incline walk","1","20-30 min","zone 2"]
-     ];
-   } else if(wd===6){
-     title="Repos actif";
-     exercises=[
-       ["Marche / steps","1","8000-10000 pas",""],
-       ["Mobility / stretching","1","10-15 min",""]
-     ];
-   } else {
-     title="Repos complet ou marche";
-     exercises=[
-       ["Marche tranquille","1","30-45 min","facile"]
-     ];
-   }
-   out.push({date:fmt(d), title, exercises});
+   const s = sessions[i % sessions.length];
+   out.push({date:fmt(d), title:s.title, exercises:s.exercises});
  }
  return out;
 })();
@@ -131,6 +118,7 @@ function saveDaySnapshot(){
     lunch: g("lunch")==="1",
     dinner: g("dinner")==="1",
     training: g("training")==="1",
+    football: g("football")==="1",
     missedTraining: g("missedTraining")==="1",
     missedReason: g("missedReason") || "",
     weight: g("dailyWeight") || "",
@@ -172,7 +160,7 @@ function renderCalendar(){
       <p><strong>Poids :</strong> ${d.weight || "non indiqué"} kg</p>
       <p><strong>Pas :</strong> ${d.steps || "non indiqué"} • <strong>Eau :</strong> ${d.water || 0} L • <strong>Sommeil :</strong> ${d.sleep || "non indiqué"} h</p>
       <p><strong>Repas :</strong> petit-déj ${d.breakfast ? "OK" : "NON"}, déjeuner ${d.lunch ? "OK" : "NON"}, dîner ${d.dinner ? "OK" : "NON"}</p>
-      <p><strong>Séance :</strong> ${d.training ? "OK" : "NON"} ${d.missedTraining ? "• échec : " + (d.missedReason || "non précisé") : ""}</p>
+      <p><strong>Muscu :</strong> ${d.training ? "OK" : "NON"} • <strong>Football :</strong> ${d.football ? "OK" : "NON"} ${d.missedTraining ? "• échec : " + (d.missedReason || "non précisé") : ""}</p>
       <p><strong>Aliments :</strong> ${d.foods || "aucun"}</p>
       <p><strong>Calories cochées :</strong> ${d.calories || 0} kcal</p>
       <p><strong>Notes :</strong> ${d.notes || "aucune"}</p>
@@ -189,7 +177,7 @@ function water(v){setWater((parseFloat(g("water")||0)+v).toFixed(2))} function s
 function stepsUI(){let st=parseInt(g("steps")||0);stepsBox.textContent=st;stepsMsg.innerHTML=st>=7000?'<span class="ok">✅ Pas validés</span>':'<span class="warn">Encore '+Math.max(0,7000-st)+' pas</span>'} function sleepUI(){let v=parseFloat(g("sleep")||0);sleepMsg.innerHTML=v>=7?'<span class="ok">✅ Sommeil validé</span>':v>0?'<span class="warn">⚠️ Sommeil court</span>':''}
 function weightUI(){let v=parseFloat(g("dailyWeight")||0);weightBox.textContent=v?v+" kg":"-- kg";if(!v){dailyWeightMsg.innerHTML="";return}let rest=Math.max(0,v-73).toFixed(1);dailyWeightMsg.innerHTML=v<=73?'<span class="ok">✅ Objectif atteint</span>':'<span class="warn">Encore '+rest+' kg avant 73 kg</span>'}
 async function loadWeather(){if(!navigator.geolocation){weatherBox.textContent="GPS indisponible";return}navigator.geolocation.getCurrentPosition(async pos=>{try{let r=await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${pos.coords.latitude}&longitude=${pos.coords.longitude}&current=temperature_2m&timezone=auto`);let data=await r.json();let temp=data.current.temperature_2m;localStorage.setItem("adf_weather_temp",temp);updateWeatherUI();waterUI();score()}catch(e){weatherBox.textContent="Erreur météo"}},()=>{weatherBox.textContent="Autorisation GPS"})}
-function updateWeatherUI(){let t=localStorage.getItem("adf_weather_temp");weatherBox.textContent=t?Math.round(t)+"°C":"Non chargée"} function score(){let sc=0;if(g("breakfast")==="1")sc+=10;if(g("lunch")==="1")sc+=20;if(g("dinner")==="1")sc+=20;let d=day(),done=0;d.exercises.forEach((e,i)=>{if(g("exDone"+i)==="1")done++});if(g("training")==="1"||done===d.exercises.length)sc+=20;if(parseFloat(g("water")||0)>=waterTarget())sc+=10;if(parseInt(g("steps")||0)>=7000)sc+=10;if(g("sync")==="1")sc+=10;if(g("missedTraining")==="1")sc=Math.max(0,sc-10);sc=Math.min(100,sc);scoreBar.style.width=sc+"%";document.getElementById("score").textContent=sc;coachLine.textContent=sc>=85?"Très bonne journée. On répète.":sc>=60?"Correct. Termine les bases.":"Priorité aux fondamentaux."}
+function updateWeatherUI(){let t=localStorage.getItem("adf_weather_temp");weatherBox.textContent=t?Math.round(t)+"°C":"Non chargée"} function score(){let sc=0;if(g("breakfast")==="1")sc+=10;if(g("lunch")==="1")sc+=20;if(g("dinner")==="1")sc+=20;let d=day(),done=0;d.exercises.forEach((e,i)=>{if(g("exDone"+i)==="1")done++});if(g("training")==="1"||done===d.exercises.length)sc+=20;if(g("football")==="1")sc+=10;if(parseFloat(g("water")||0)>=waterTarget())sc+=10;if(parseInt(g("steps")||0)>=7000)sc+=10;if(g("sync")==="1")sc+=10;if(g("missedTraining")==="1")sc=Math.max(0,sc-10);sc=Math.min(100,sc);scoreBar.style.width=sc+"%";document.getElementById("score").textContent=sc;coachLine.textContent=sc>=85?"Très bonne journée. On répète.":sc>=60?"Correct. Termine les bases.":"Priorité aux fondamentaux."}
 
 function weekBounds(){
   const now = new Date(keyDate()+"T12:00:00");
