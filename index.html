@@ -2,16 +2,32 @@
 :root{--bg:#070b16;--panel:#101827;--line:#283548;--text:#f8fafc;--muted:#9aa7b8;--blue:#38bdf8;--green:#22c55e;--red:#ef4444}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 35%),radial-gradient(circle at 90% 10%,rgba(139,92,246,.16),transparent 35%),linear-gradient(160deg,#020617,#0f172a,#111827);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Arial,sans-serif;padding:env(safe-area-inset-top) 14px 92px}header{position:sticky;top:0;z-index:10;padding:14px 0 10px;background:linear-gradient(180deg,#070b16 75%,rgba(7,11,22,0));backdrop-filter:blur(12px)}h1{margin:0;font-size:28px}.sub{color:var(--muted);font-size:13px;margin-top:4px}.badge{display:inline-flex;margin-top:9px;background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.35);color:#bae6fd;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:900}.card{background:linear-gradient(180deg,rgba(16,24,39,.97),rgba(15,23,42,.94));border:1px solid var(--line);border-radius:24px;padding:16px;margin:12px 0;box-shadow:0 18px 45px rgba(0,0,0,.28)}.hero{background:linear-gradient(135deg,rgba(37,99,235,.28),rgba(15,23,42,.9),rgba(34,197,94,.13))}h2{margin:0 0 10px;font-size:20px}h3{margin:18px 0 9px;color:#dbeafe;font-size:16px}.muted{color:var(--muted);font-size:14px;line-height:1.35}.between{display:flex;justify-content:space-between;gap:10px;align-items:center}.score{font-size:52px;font-weight:950;letter-spacing:-2px}.progress{height:14px;background:#020617;border:1px solid #263244;border-radius:999px;overflow:hidden}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--green));transition:.35s}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.mini{background:rgba(2,6,23,.55);border:1px solid #263244;border-radius:18px;padding:12px}.mini strong{display:block;font-size:20px;margin-top:4px}.check{display:flex;gap:12px;align-items:center;background:rgba(2,6,23,.55);border:1px solid #263244;border-radius:16px;padding:13px;margin:8px 0;font-weight:750}.check input{width:25px;height:25px;accent-color:#22c55e}button{border:0;border-radius:16px;padding:13px 14px;background:#263244;color:white;font-weight:850;font-size:15px}button.primary{background:linear-gradient(90deg,#2563eb,#0891b2)}button.red{background:#7f1d1d}button.ghost{background:rgba(2,6,23,.55);border:1px solid #334155}input,textarea{width:100%;border:1px solid #374151;background:#020617;color:white;border-radius:15px;padding:13px;font-size:16px;margin:7px 0 11px}textarea{min-height:110px}.pill{display:inline-block;border:1px solid #334155;border-radius:999px;background:#0b1220;padding:6px 9px;color:#cbd5e1;font-size:12px;margin:5px 5px 0 0}.ex{background:rgba(2,6,23,.55);border:1px solid #263244;border-radius:18px;padding:13px;margin:10px 0}.ex.done{border-color:#22c55e;background:rgba(8,32,20,.8)}.hidden{display:none}.nav{position:fixed;bottom:0;left:0;right:0;background:rgba(5,8,18,.96);border-top:1px solid #263244;display:grid;grid-template-columns:repeat(6,1fr);padding:8px 6px calc(8px + env(safe-area-inset-bottom));z-index:20;backdrop-filter:blur(18px)}.nav button{font-size:11px;padding:10px 2px;background:transparent;color:#94a3b8}.nav button.on{background:#1f2937;color:white}.ok{color:#86efac;font-weight:900}.warn{color:#fdba74;font-weight:900}.failbox{border:1px solid #7f1d1d;background:#260b0b;border-radius:18px;padding:14px;margin:12px 0}.foodchip{display:flex;align-items:center;gap:10px;padding:12px;margin:8px 0;border:1px solid #2b3a50;background:rgba(2,6,23,.55);border-radius:16px}.foodchip input{width:24px;height:24px;accent-color:#22c55e}.foodchip .cal{margin-left:auto;color:#a7f3d0;font-size:12px;font-weight:800}
 </style></head><body>
-<header><h1>Enzo Dream Fit</h1><div class="sub">Objectif 73 kg sec et musclé • USA • 5 séances/semaine</div><span class="badge">VERSION ENZO V2 — séances quotidiennes + football</span></header>
+<header><h1>Enzo Dream Fit</h1><div class="sub">Objectif 73 kg sec et musclé • USA • 5 séances/semaine</div><span class="badge">VERSION ENZO V3 — chantier + foot + recomposition</span></header>
 <section id="home"><div class="card hero"><div class="between"><div><h2>Bonjour Enzo</h2><div class="muted" id="dateTitle"></div><div class="muted" id="dayTitle"></div></div><div class="score"><span id="score">0</span>%</div></div><div class="progress"><div id="scoreBar" class="bar"></div></div><p class="muted" id="coachLine"></p></div><div class="grid"><div class="mini">💧 Eau cible<strong id="waterTargetBox">3 L</strong></div><div class="mini">🌤️ Météo<strong id="weatherBox">Non chargée</strong></div><div class="mini">⚖️ Poids<strong id="weightBox">-- kg</strong></div><div class="mini">🚶 Pas<strong id="stepsBox">0</strong></div></div>
 <div class="card">
   <button class="primary" onclick="loadWeather()">🌤️ Actualiser la météo</button>
   <p class="muted">La météo ajuste l’objectif d’eau automatiquement quand il fait chaud.</p>
 </div>
 
-<div class="card"><h2>✅ Aujourd'hui</h2><label class="check"><input type="checkbox" data-c="breakfast"> Petit-déjeuner protéiné</label><label class="check"><input type="checkbox" data-c="lunch"> Déjeuner validé</label><label class="check"><input type="checkbox" data-c="dinner"> Dîner validé</label><label class="check"><input type="checkbox" data-c="training"> Séance musculation terminée</label><label class="check"><input type="checkbox" data-c="football"> Entraînement de football fait</label><label class="check"><input type="checkbox" data-c="sync"> Synchro ChatGPT</label></div></section>
-<section id="training" class="hidden"><div class="card"><h2>🏋️ Séance du jour</h2><p class="muted" id="trainSub"></p><div class="failbox"><label class="check"><input type="checkbox" id="missedTraining"> Échec : pas de musculation aujourd'hui</label><textarea id="missedReason" placeholder="Pourquoi ?"></textarea></div><div id="exList"></div></div></section>
-<section id="food" class="hidden"><div class="card"><h2>🍽️ Repas à cocher</h2><p class="muted">Coche ce que tu as mangé.</p><div id="foodList"></div><h3>Notes repas</h3><textarea id="notes" placeholder="Ex : portion plus grande, sauce à part, repas dehors..."></textarea><button onclick="saveVal('notes')">Enregistrer notes</button></div></section>
+<div class="card"><h2>✅ Aujourd'hui</h2><label class="check"><input type="checkbox" data-c="breakfast"> Petit-déjeuner protéiné</label><label class="check"><input type="checkbox" data-c="lunch"> Déjeuner validé</label><label class="check"><input type="checkbox" data-c="dinner"> Dîner validé</label><label class="check"><input type="checkbox" data-c="training"> Séance musculation terminée</label><label class="check"><input type="checkbox" data-c="football"> Entraînement de football fait</label><label class="check"><input type="checkbox" data-c="exhausted"> Fatigue énorme / chantier dur</label><label class="check"><input type="checkbox" data-c="sync"> Synchro ChatGPT</label></div></section>
+<section id="training" class="hidden"><div class="card"><h2>🏋️ Séance du jour</h2><p class="muted" id="trainSub"></p><p class="muted" id="fatigueRuleBox"></p><div class="failbox"><label class="check"><input type="checkbox" id="missedTraining"> Échec : pas de musculation aujourd'hui</label><textarea id="missedReason" placeholder="Pourquoi ?"></textarea></div><div id="exList"></div></div></section>
+<section id="food" class="hidden">
+<div class="card">
+<h2>📌 Règles simples Enzo</h2>
+<p class="muted">Objectif : recomposition corporelle, pas sèche agressive.</p>
+<ul>
+<li>Calories : 2400-2500 kcal les jours chantier + sport.</li>
+<li>Calories : 2200-2300 kcal les jours sans sport.</li>
+<li>Protéines : 150-170 g/jour.</li>
+<li>2 à 3 L d’eau par jour.</li>
+<li>2 fruits par jour.</li>
+<li>Légumes 1 à 2 fois par jour.</li>
+<li>Coca Zéro autorisé : 1 à 2 max/jour.</li>
+<li>Saucisson en France : 30-40 g, maximum 3 fois/semaine, jamais dans le paquet.</li>
+<li>Si épuisé : 2 séances suffisent dans la semaine.</li>
+</ul>
+</div>
+<div class="card"><h2>🍽️ Repas à cocher</h2><p class="muted">Coche ce que tu as mangé.</p><div id="foodList"></div><h3>Notes repas</h3><textarea id="notes" placeholder="Ex : portion plus grande, sauce à part, repas dehors..."></textarea><button onclick="saveVal('notes')">Enregistrer notes</button></div></section>
 <section id="track" class="hidden"><div class="card" id="dailyWeightCard"><h2>⚖️ Poids du jour</h2><p class="muted">Pesée seulement lundi, mercredi et samedi. Objectif actuel : 73 kg avec 13-15% body fat.</p><input id="dailyWeight" type="number" step="0.1" placeholder="Ex : 98.2"><button class="primary" onclick="saveVal('dailyWeight')">Enregistrer</button><p id="dailyWeightMsg"></p></div><div class="card"><h2>💧 Eau</h2><p class="muted">L’objectif s’ajuste avec la chaleur si la météo est chargée.</p><div class="between"><b><span id="waterV">0</span> L</b><span id="waterMsg" class="muted"></span></div><div class="grid"><button onclick="water(.25)">+250 ml</button><button onclick="water(.5)">+500 ml</button><button onclick="water(.75)">+750 ml</button><button onclick="water(1)">+1 L</button></div><button class="red" onclick="setWater(0)">Reset eau</button></div><div class="card"><h2>🚶 Pas</h2><input id="steps" type="number" placeholder="Ex : 8350"><button class="primary" onclick="saveVal('steps')">Enregistrer</button><p id="stepsMsg"></p></div><div class="card"><h2>😴 Sommeil</h2><input id="sleep" type="number" step="0.25" placeholder="Ex : 6.5"><button class="primary" onclick="saveVal('sleep')">Enregistrer</button><p id="sleepMsg"></p></div></section>
 
 <section id="calendar" class="hidden">
@@ -29,64 +45,70 @@ const PLAN = (() => {
  const start = new Date("2026-06-25T12:00:00");
  const out = [];
  const fmt = d => d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
- const sessions = [
-  {title:"Push • Pecs épaules triceps", exercises:[
-   ["Bench press ou chest press","4","6-10","90 sec"],
-   ["Incline dumbbell press","4","8-12","90 sec"],
-   ["Cable fly ou pec deck","3","12-15","60 sec"],
-   ["Lateral raises","4","12-20","45-60 sec"],
-   ["Triceps rope pushdown","3","10-15","60 sec"],
-   ["Overhead triceps extension","3","10-15","60 sec"]
-  ]},
-  {title:"Pull • Dos biceps", exercises:[
-   ["Pull-ups assistées ou lat pulldown","4","8-12","90 sec"],
-   ["Seated cable row","4","8-12","90 sec"],
-   ["One-arm dumbbell row","3","10-12","75 sec"],
-   ["Rear delt fly","4","12-20","60 sec"],
-   ["Dumbbell curls","3","10-12","60 sec"],
-   ["Hammer curls","3","10-12","60 sec"]
-  ]},
-  {title:"Legs • Jambes abdos", exercises:[
-   ["Squat ou leg press","4","8-12","90 sec"],
-   ["Romanian deadlift","4","8-12","90 sec"],
-   ["Leg curl","3","12-15","60 sec"],
-   ["Leg extension","3","12-15","60 sec"],
-   ["Calf raises","4","12-20","45-60 sec"],
-   ["Plank / cable crunch","3","30-60 sec / 12-15","45-60 sec"]
-  ]},
-  {title:"Upper hypertrophy • Haut du corps", exercises:[
-   ["Incline machine press","3","10-12","75 sec"],
-   ["Lat pulldown","3","10-12","75 sec"],
-   ["Machine row","3","10-12","75 sec"],
-   ["Lateral raises","4","15-20","45-60 sec"],
-   ["Rear delt fly","3","15-20","45-60 sec"],
-   ["Biceps + triceps superset","3","12-15","60 sec"]
-  ]},
-  {title:"Full body léger • Masse propre", exercises:[
-   ["Rower / bike warm-up","1","10 min",""],
-   ["Goblet squat","3","12","60 sec"],
-   ["Push-ups ou machine press","3","AMRAP propre","60 sec"],
-   ["Cable row","3","12","60 sec"],
-   ["Walking lunges","3","10/jambe","60 sec"],
-   ["Incline walk","1","20-30 min","zone 2"]
-  ]},
-  {title:"Shoulders arms core • Épaules bras abdos", exercises:[
-   ["Shoulder press","4","8-12","90 sec"],
-   ["Lateral raises","4","15-20","45-60 sec"],
-   ["Rear delt fly","4","15-20","45-60 sec"],
-   ["EZ bar curl ou dumbbell curl","3","10-12","60 sec"],
-   ["Triceps rope pushdown","3","10-12","60 sec"],
-   ["Abs circuit","3","12-15","45 sec"]
-  ]}
- ];
+
+ const plans = {
+  1: {title:"Chantier • Repos salle", exercises:[
+   ["Récupération active", "1", "10-20 min marche ou mobilité", "facile"],
+   ["Étirements légers", "1", "5-10 min", "facile"]
+  ], fatigue:"Repos conseillé. Travail chantier déjà physique."},
+
+  2: {title:"Pectoraux + haut du corps", exercises:[
+   ["Développé incliné haltères", "4", "8-10", "90 sec"],
+   ["Développé couché barre ou machine", "4", "6-8", "90-120 sec"],
+   ["Écartés poulie ou machine", "3", "12-15", "60 sec"],
+   ["Tirage vertical dos", "3", "10", "75 sec"],
+   ["Élévations latérales", "3", "15", "60 sec"],
+   ["Triceps corde", "3", "12", "60 sec"],
+   ["Gainage", "3", "45 sec", "45 sec"]
+  ], fatigue:"Séance prioritaire. Accent pectoraux."},
+
+  3: {title:"Chantier • Repos / mobilité", exercises:[
+   ["Mobilité épaules / hanches", "1", "10 min", "facile"],
+   ["Marche tranquille", "1", "20-30 min si énergie", "facile"]
+  ], fatigue:"Repos. Si épuisé, ne force pas."},
+
+  4: {title:"Dos + épaules + bras", exercises:[
+   ["Tractions ou tirage vertical", "4", "8-10", "90 sec"],
+   ["Rowing machine ou haltères", "4", "8-10", "90 sec"],
+   ["Tirage horizontal", "3", "10-12", "75 sec"],
+   ["Développé épaules machine", "3", "8-10", "90 sec"],
+   ["Élévations latérales", "4", "15", "60 sec"],
+   ["Curl biceps", "3", "10-12", "60 sec"],
+   ["Triceps poulie", "3", "12", "60 sec"]
+  ], fatigue:"Séance solide, mais pas d'ego lifting."},
+
+  5: {title:"Chantier • Repos salle", exercises:[
+   ["Récupération active", "1", "10-20 min marche", "facile"],
+   ["Sommeil + hydratation", "1", "priorité", ""]
+  ], fatigue:"Repos conseillé avant week-end."},
+
+  6: {title:"Option jambes + abdos léger", exercises:[
+   ["Presse à cuisses", "4", "10", "90 sec"],
+   ["Fentes", "3", "10 par jambe", "75 sec"],
+   ["Leg curl", "3", "12", "60 sec"],
+   ["Mollets", "4", "15", "45 sec"],
+   ["Abdos", "1", "10 min", "45 sec"]
+  ], fatigue:"À faire seulement si énergie. Si fatigue chantier/foot : repos."},
+
+  0: {title:"Dimanche obligatoire • Pectoraux + full body", exercises:[
+   ["Développé couché barre", "4", "6-8", "90-120 sec"],
+   ["Développé incliné haltères", "4", "8-10", "90 sec"],
+   ["Écartés poulie", "4", "12-15", "60 sec"],
+   ["Presse à cuisses", "3", "10", "90 sec"],
+   ["Leg curl ou jambes tendues léger", "3", "10", "75 sec"],
+   ["Tirage dos", "3", "10", "75 sec"],
+   ["Abdos", "4", "12-15", "45 sec"]
+  ], fatigue:"Séance obligatoire de la semaine. Priorité pectoraux."}
+ };
+
  for(let i=0;i<180;i++){
    const d = new Date(start); d.setDate(start.getDate()+i);
-   const s = sessions[i % sessions.length];
-   out.push({date:fmt(d), title:s.title, exercises:s.exercises});
+   const p = plans[d.getDay()];
+   out.push({date:fmt(d), title:p.title, exercises:p.exercises, fatigue:p.fatigue});
  }
  return out;
 })();
-const FOODS={"Breakfast / Morning": [["Black coffee", 0], ["Whey isolate", 110], ["Greek yogurt 0% / nonfat", 120], ["Eggs", 210], ["Egg whites", 80], ["Turkey slices", 120], ["Oatmeal", 180], ["Banana", 105], ["Apple", 95], ["Whole wheat toast", 120], ["Peanut butter small serving", 95], ["Protein bar", 200]], "Lunch": [["Grilled chicken breast", 250], ["Turkey breast", 220], ["Lean ground beef 93/7", 260], ["Tuna pouch / canned tuna", 120], ["Salmon", 280], ["Shrimp", 160], ["Microwave rice cup", 300], ["Quinoa pouch", 280], ["Sweet potato", 220], ["Whole wheat wrap", 180], ["Black beans", 220], ["Lentils", 230], ["Salad / mixed greens", 60], ["Avocado small portion", 120], ["Salsa / hot sauce", 20], ["Diet Coke / Coke Zero", 0], ["Monster Ultra", 10]], "Dinner": [["Chicken / turkey", 250], ["Lean beef / steak", 300], ["Fish / salmon / tuna", 260], ["Eggs / omelet", 240], ["Greek yogurt / cottage cheese", 150], ["Rice / quinoa / potato", 280], ["Vegetables / salad", 80], ["Whole wheat pasta", 300], ["Beans", 220]], "Snacks / Controlled treats": [["Greek yogurt", 120], ["Cottage cheese", 150], ["Fruit", 100], ["Beef jerky", 120], ["Rice cakes", 70], ["Protein shake", 120], ["Protein bar", 200], ["Popcorn light", 120], ["Dark chocolate small portion", 100], ["Peanut butter small portion", 95], ["Chipotle bowl controlled", 650], ["Subway turkey 6-inch", 350], ["Sushi / poke bowl", 650]]}; const START="2026-06-25";
+const FOODS={"Matin / Breakfast": [["80 g flocons d’avoine / oatmeal", 300], ["Whey isolate Prozis / whey protein", 120], ["Banane / banana", 105], ["Lait ou eau / milk or water", 80], ["10 g beurre de cacahuète / peanut butter", 60], ["Œufs / eggs", 210], ["Skyr / Greek yogurt", 120], ["Café noir / black coffee", 0]], "Pause chantier / Snack": [["Fruit", 100], ["Shaker whey", 120], ["Skyr / fromage blanc / Greek yogurt", 120], ["Cottage cheese", 150], ["Beef jerky low sugar", 120], ["Œufs durs / hard boiled eggs", 160], ["Amandes / almonds petite portion", 170]], "Midi / Lunch": [["200 g poulet / chicken breast", 250], ["Dinde / turkey breast", 230], ["Thon / tuna cans", 150], ["Steak haché 5% / lean beef 93/7", 280], ["Œufs / eggs", 210], ["Riz / microwave rice", 300], ["Pâtes / whole wheat pasta", 300], ["Pommes de terre / potatoes", 220], ["Sweet potatoes", 220], ["Pain complet / whole wheat bread", 160], ["Tortilla / wrap complet", 180], ["Légumes / frozen vegetables", 80], ["Salade en sachet / salad bags", 60]], "Avant / après salle": [["Banane avant salle", 105], ["Eau", 0], ["Shaker whey si faim / post gym", 120], ["Coca Zéro", 0], ["Monster Ultra", 10]], "Soir / Dinner": [["200 g viande / meat", 280], ["Poisson / salmon / fish", 280], ["Poulet / chicken", 250], ["Œufs / omelette", 240], ["Riz / rice", 300], ["Pâtes / pasta", 300], ["Pommes de terre", 220], ["Légumes / vegetables", 80], ["Skyr / fromage blanc si faim", 120], ["Cottage cheese", 150]], "Écart contrôlé": [["Saucisson France 30-40 g max", 180], ["Cornichons / crudités avec saucisson", 20], ["Coca Zéro max 1-2/jour", 0], ["Subway turkey 6-inch", 350], ["Chipotle bowl contrôlé", 650], ["Poke / sushi bowl", 650], ["Popcorn light", 120], ["Dark chocolate petite portion", 100]]}; const START="2026-06-25";
 function localISO(){const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
 function keyDate(){let iso=localISO();return iso<START?START:iso} function day(){return PLAN.find(x=>x.date===keyDate())||PLAN[0]} function k(x){return"adf5_"+keyDate()+"_"+x} function g(x){return localStorage.getItem(k(x))||""} function s(x,v){
  localStorage.setItem(k(x),v);
@@ -169,7 +191,7 @@ function renderCalendar(){
   });
 }
 
-function init(){let d=day(),dd=new Date(d.date+"T12:00:00");dateTitle.textContent=dd.toLocaleDateString("fr-FR",{weekday:"long",day:"2-digit",month:"long"});dayTitle.textContent=d.title;trainSub.textContent=d.title+" • coche chaque exercice fait";document.querySelectorAll("[data-c]").forEach(cb=>{cb.checked=g(cb.dataset.c)==="1";cb.onchange=()=>s(cb.dataset.c,cb.checked?"1":"0")});["dailyWeight","steps","notes","sleep"].forEach(id=>{let el=document.getElementById(id);if(el)el.value=g(id)});missedTraining.checked=g("missedTraining")==="1";missedReason.value=g("missedReason");missedTraining.onchange=e=>s("missedTraining",e.target.checked?"1":"0");missedReason.onchange=e=>s("missedReason",e.target.value);let ex=exList;ex.innerHTML="";d.exercises.forEach((e,i)=>{let done=g("exDone"+i)==="1";let div=document.createElement("div");div.className="ex"+(done?" done":"");div.innerHTML=`<label class="check"><input type="checkbox" ${done?"checked":""}> Exercice fait</label><b>${e[0]}</b><br><span class="pill">${e[1]} séries</span><span class="pill">${e[2]}</span><span class="pill">Repos ${e[3]}</span><input placeholder="Charge / ressenti optionnel" value="${g('ex'+i)}">`;div.querySelector("input[type=checkbox]").onchange=ev=>{localStorage.setItem(k("exDone"+i),ev.target.checked?"1":"0");init()};div.querySelector("input:not([type=checkbox])").onchange=ev=>s("ex"+i,ev.target.value);ex.appendChild(div)});renderFoods();basic();score();updateWeatherUI();updateWeighVisibility();saveDaySnapshot();renderCalendar();if(!localStorage.getItem("adf_weather_temp"))loadWeather()}
+function init(){let d=day(),dd=new Date(d.date+"T12:00:00");dateTitle.textContent=dd.toLocaleDateString("fr-FR",{weekday:"long",day:"2-digit",month:"long"});dayTitle.textContent=d.title;trainSub.textContent=d.title+" • coche chaque exercice fait"; if(document.getElementById("fatigueRuleBox")) fatigueRuleBox.textContent=d.fatigue||"Demande-toi : juste fatigué ou épuisé ?";document.querySelectorAll("[data-c]").forEach(cb=>{cb.checked=g(cb.dataset.c)==="1";cb.onchange=()=>s(cb.dataset.c,cb.checked?"1":"0")});["dailyWeight","steps","notes","sleep"].forEach(id=>{let el=document.getElementById(id);if(el)el.value=g(id)});missedTraining.checked=g("missedTraining")==="1";missedReason.value=g("missedReason");missedTraining.onchange=e=>s("missedTraining",e.target.checked?"1":"0");missedReason.onchange=e=>s("missedReason",e.target.value);let ex=exList;ex.innerHTML="";d.exercises.forEach((e,i)=>{let done=g("exDone"+i)==="1";let div=document.createElement("div");div.className="ex"+(done?" done":"");div.innerHTML=`<label class="check"><input type="checkbox" ${done?"checked":""}> Exercice fait</label><b>${e[0]}</b><br><span class="pill">${e[1]} séries</span><span class="pill">${e[2]}</span><span class="pill">Repos ${e[3]}</span><input placeholder="Charge / ressenti optionnel" value="${g('ex'+i)}">`;div.querySelector("input[type=checkbox]").onchange=ev=>{localStorage.setItem(k("exDone"+i),ev.target.checked?"1":"0");init()};div.querySelector("input:not([type=checkbox])").onchange=ev=>s("ex"+i,ev.target.value);ex.appendChild(div)});renderFoods();basic();score();updateWeatherUI();updateWeighVisibility();saveDaySnapshot();renderCalendar();if(!localStorage.getItem("adf_weather_temp"))loadWeather()}
 function renderFoods(){foodList.innerHTML="";Object.keys(FOODS).forEach(group=>{let h=document.createElement("h3");h.textContent=group;foodList.appendChild(h);FOODS[group].forEach((f,i)=>{let id="food_"+group+"_"+i,checked=g(id)==="1";let row=document.createElement("label");row.className="foodchip";row.innerHTML=`<input type="checkbox" ${checked?"checked":""}><span>${f[0]}</span><span class="cal">${f[1]} kcal</span>`;row.querySelector("input").onchange=e=>s(id,e.target.checked?"1":"0");foodList.appendChild(row)})})}
 function selectedFoods(){let out=[];Object.keys(FOODS).forEach(group=>FOODS[group].forEach((f,i)=>{if(g("food_"+group+"_"+i)==="1")out.push(f[0]+" ("+f[1]+" kcal)")}));return out.length?out.join(", "):"aucun"} function foodCalories(){let t=0;Object.keys(FOODS).forEach(group=>FOODS[group].forEach((f,i)=>{if(g("food_"+group+"_"+i)==="1")t+=f[1]}));return t}
 function basic(){waterUI();stepsUI();sleepUI();weightUI()} function saveVal(id){s(id,document.getElementById(id).value)} function waterTarget(){let temp=parseFloat(localStorage.getItem("adf_weather_temp")||"0");if(temp>=32)return 4;if(temp>=27)return 3.5;return 3}
